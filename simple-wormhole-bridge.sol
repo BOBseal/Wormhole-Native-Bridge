@@ -116,12 +116,12 @@ contract BridgeV1 is TokenSender , TokenReceiver, Ownable{
         address tokenAddress = receivedTokens[0].tokenAddress;
         // type handling for native and erc20
         if(type_ == uint8(0)) { 
-            payable(recipient).transfer(amt);
-            delivered[recipient][dh] = true; 
+            delivered[recipient][dh] = true;
+            payable(recipient).transfer(amt); 
         } else  if(type_ == uint8(1)){
             uint256 amount = receivedTokens[0].amount;
-            IERC20(tokenAddress).transfer(recipient,amount);
             delivered[recipient][dh] = true;
+            IERC20(tokenAddress).transfer(recipient,amount);
         }
     }
 
