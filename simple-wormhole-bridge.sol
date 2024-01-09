@@ -60,7 +60,7 @@ contract BridgeV1 is TokenSender , TokenReceiver, Ownable{
         );
         IERC20(token).transferFrom(msg.sender, address(this), amount);
 
-        bytes memory payload = abi.encode(recipient, 1 , 0);
+        bytes memory payload = abi.encode(recipient, uint8(1) , 0);
         sendTokenWithPayloadToEvm(
             targetChain,
             targetHelloToken, // address (on targetChain) to send token and payload to
