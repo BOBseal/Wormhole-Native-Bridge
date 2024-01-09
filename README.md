@@ -1,5 +1,9 @@
 *** WORMHOLE BASED BRIDGE CONTRACT - BASIC VERSION ***
 
+IMPORTANT => 
+require OpenZeppelin < 5.0.0
+post deployment endpoint contracts must be sent to allow crosscommunication between bridge instances on each chain for each chain
+
 FEATURES :
 
 : Bridge Native Token To/from EVM.
