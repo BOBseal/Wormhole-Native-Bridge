@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.20;
 
 import "./src/Utils.sol";
 import {IWETH} from "./src/interfaces/IWETH.sol";
@@ -8,7 +8,7 @@ import {TokenBase, TokenReceiver, TokenSender} from "./src/TokenBase.sol";
 import "./src/interfaces/IWormholeReceiver.sol";
 import "./src/interfaces/IWormholeRelayer.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/token/ERC20/IERC20.sol"; // use oz < 5.0
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract BridgeV1 is TokenSender , TokenReceiver, Ownable{
 
@@ -21,7 +21,7 @@ contract BridgeV1 is TokenSender , TokenReceiver, Ownable{
         address _tokenBridge,
         address _wormhole//,
     
-    ) TokenBase(_wormholeRelayer, _tokenBridge, _wormhole) {
+    )Ownable(msg.sender) TokenBase(_wormholeRelayer, _tokenBridge, _wormhole) {
         
     }
     // allow contract instances must from src chains
